@@ -1,0 +1,83 @@
+body {
+    background-color: #2d5bb9;
+}
+
+p.smokerTemp {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 175px;
+    position: relative;
+    text-align: center;
+}
+
+p.smoker {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 45px;
+    position: absolute;
+    left: 700px;
+    top: 100px;
+}
+
+p.targetTemp {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 100px;
+    position: absolute;
+    top: 80px;
+    right: 340px;
+}
+
+img.upArrow {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 100px;
+    position: absolute;
+    top: 205px;
+    right: 300px;
+}
+
+img.downArrow {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 100px;
+    position: absolute;
+    top: 245px;
+    right: 300px;
+}
+
+p.foodTemp {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 100px;
+    position: absolute;
+    top: 80px;
+    left: 100px;
+}
+
+p.food {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left: 175px;
+    top: 120px;
+}
+
+p.blower {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 35px;
+    position: absolute;
+    left: 155px;
+    top: 350px;
+}
+
+p.blowerStatus {
+    color: white;
+    font-family: Verdana, "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;
+    font-size: 100px;
+    position: absolute;
+    left: 100px;
+    top: 310px;
+}

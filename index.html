@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/static/css/style.css" rel="stylesheet">
+        <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                function getSmokerTemp() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/getSmokerTemp"
+                    })
+                    .done(function(temp) {
+                        $("p.smokerTemp").text(temp)
+                    });
+                }
+
+                function getTargetTemp() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/getTargetTemp"
+                    })
+                    .done(function(temp) {
+                        $("p.targetTemp").text(temp)
+                    });
+                }
+
+                function getFoodTemp() {
+                    $.ajax({
+                        type: "GET",
+                        url: "/getFoodTemp"
+                    })
+                    .done(function(temp) {
+                        $("p.foodTemp").text(temp)
+                    });
+                }
+
+                function getBlowerStatus() {
+                    var smokerTemp = $("p.smokerTemp").text()
+                    var targetTemp = $("p.targetTemp").text()
+
+                    if (parseInt(smokerTemp) < parseInt(targetTemp)) {
+                        $("p.blowerStatus").text("ON")
+                    }
+                    else {
+                        $("p.blowerStatus").text("OFF")
+                    }
+
+                }
+
+                function setTargetTemp(target) {
+                    $.ajax({
+                        type: "GET",
+                        url: "/setTargetTemp",
+                        data: {"target": target}
+                    })
+                    .done(function() {
+                        $("p.targetTemp").text(target)
+                    })
+                }
+
+                function updateEverything() {
+                    getSmokerTemp();
+                    getFoodTemp();
+                    getBlowerStatus();
+                }
+
+                updateEverything();
+                getTargetTemp();
+
+                $("img.upArrow").click(function() {
+                    var targetTemp = parseInt($("p.targetTemp").text())
+                    $("p.targetTemp").text(parseInt(targetTemp+=1))
+                });
+
+                $("img.downArrow").click(function() {
+                    var targetTemp = parseInt($("p.targetTemp").text())
+                    $("p.targetTemp").text(parseInt(targetTemp-=1))
+                });
+
+                setInterval(function() {
+                    updateEverything();
+                    var newTarget = $("p.targetTemp").text();
+                    setTargetTemp(newTarget);
+                }, 30000);
+
+
+
+            })
+        </script>
+        <p class="smoker">Smoker</p>
+        <p class="smokerTemp"></p>
+        <p class="targetTemp"></p>
+        <img name="jsbutton" class="upArrow" src="/static/img/up_arrow.png" width="45" height="40" border="0">
+        <img name="jsbutton" class="downArrow" src="/static/img/down_arrow.png" width="45" height="40" border="0">
+        <p class="food">Food</p>
+        <p class="foodTemp"></p>
+        <p class="blower">Blower</p>
+        <p class="blowerStatus"></p>
+
+    </head>
+
+    <body>
+
+    </body>
+</html>
